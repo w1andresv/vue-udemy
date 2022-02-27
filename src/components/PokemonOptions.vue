@@ -2,8 +2,9 @@
   <h3>Pokemon options</h3>
   <div class="options-container">
     <ul>
-      <li v-for="item in pokemons" :key="item.id">
-        {{item.name}}
+      <li v-for="item in pokemons" :key="item.id"
+          @click="$emit('selection', item.id)">
+        <label style="text-transform: capitalize; cursor: pointer"> {{ item.name }}</label>
       </li>
     </ul>
   </div>
@@ -12,10 +13,10 @@
 <script>
 export default {
   name: "PokemonOptions",
-  props:{
-    pokemons:{
-      type:Array,
-      required:true
+  props: {
+    pokemons: {
+      type: Array,
+      required: true
     }
   }
 }
